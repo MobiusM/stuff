@@ -1,0 +1,70 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Home.master.cs" Inherits="End.Home" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <script type="text/javascript">
+        function time() 
+        {
+            var date = new Date();
+            document.getElementById("clock").innerHTML = date.toLocaleTimeString();
+        }
+        setInterval(time, 1000);
+    </script>
+
+    <style type="text/css">
+        td
+        {
+            text-align : center;   
+        }
+        
+        {
+            text-decoration : none;
+        }   
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body onload="time()">
+    <!----Content in specific page---->
+    <center><table style="border : 1px solid black;">
+            <tr>
+                <td style = "width : 250px; height : 150px; background-color : transparent;">
+                    <img src="special.jpg" alt="car" height = "150px" width = "250px"/>
+                </td>
+                <td style ="width : 500px; height : 150px; color : Yellow; background-color : Green;">
+                    <br />
+                    <% = current %>
+                    <br />
+                    <a href="Login.aspx" style="color : Yellow;">Login</a><br />
+                    <a href ="Register.aspx" style="color : Yellow;">Register</a><br />
+                    <a href="Logout.aspx" style="color :Yellow">Logout</a>
+                    <br />
+                    <div id="clock"></div>
+                </td>
+                <td style = "width : 250px; height : 150px; background-color : transparent; border-bottom : 1px solid black; font-style : italic;">
+                    <a href="HomePage.aspx">Home Page</a> <br />
+                    <a href="MultipicationBoard.aspx">Multipication Board</a> <br />
+                    <a href="VendingMachine.aspx">Vending Machine</a> <br />
+                    <a href="GuessNumber.aspx">Guess Number</a><br />
+                    <a href ="Gallery.aspx">Gallery</a><br />
+                    <a href="Hanukiyah.aspx">Hanukiyah</a><br />
+                    <a href="Sevivon.aspx">Sevivon</a><br />
+                    <span style="color : Red;"><b>New! - </b></span> Tic Tac Toe
+
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan = "3">
+                    <a href="Admin.aspx">Management Page - Admins Only!</a>
+                </td>
+            
+            </tr>
+        </table>
+        <asp:ContentPlaceHolder ID="body" runat="server"> 
+        </asp:ContentPlaceHolder></center>
+</body>
+</html>
