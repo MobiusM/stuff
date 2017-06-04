@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -15,11 +14,6 @@
     <AssemblyName>End</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,18 +60,28 @@
     <Content Include="App_Data\db_log.ldf">
       <DependentUpon>db.mdf</DependentUpon>
     </Content>
+    <Content Include="Cars.aspx" />
     <Content Include="Gallery.aspx" />
     <Content Include="GuessNumber.aspx" />
     <Content Include="Hanukiyah.aspx" />
     <Content Include="HomePage.aspx" />
+    <Content Include="Honda.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="MultipicationBoard.aspx" />
+    <Content Include="pics\arcos.jpg" />
+    <Content Include="pics\auris.jpg" />
+    <Content Include="pics\br-v.jpg" />
     <Content Include="pics\bridge.jpg" />
     <Content Include="pics\car.jpg" />
     <Content Include="pics\cat.jpg" />
+    <Content Include="pics\civic.jpg" />
+    <Content Include="pics\corolla.jpg" />
     <Content Include="pics\dragon.jpg" />
     <Content Include="pics\earth.jpg" />
+    <Content Include="pics\ferrari.jpg" />
+    <Content Include="pics\forester.jpg" />
+    <Content Include="pics\funny.gif" />
     <Content Include="pics\Hanukiyah0.GIF" />
     <Content Include="pics\Hanukiyah1.GIF" />
     <Content Include="pics\Hanukiyah2.GIF" />
@@ -87,27 +91,41 @@
     <Content Include="pics\Hanukiyah6.GIF" />
     <Content Include="pics\Hanukiyah7.GIF" />
     <Content Include="pics\Hanukiyah8.GIF" />
+    <Content Include="pics\honda_logo.jpg" />
+    <Content Include="pics\jazz.png" />
     <Content Include="pics\lamborghini.jpg" />
+    <Content Include="pics\mator.png" />
+    <Content Include="pics\matrix.gif" />
+    <Content Include="pics\O.jpg" />
     <Content Include="pics\pokemon.png" />
+    <Content Include="pics\prius.png" />
+    <Content Include="pics\racing.jpg" />
     <Content Include="pics\rainbow.jpg" />
     <Content Include="pics\rubik.jpg" />
     <Content Include="pics\shark.jpg" />
     <Content Include="pics\special.jpg" />
+    <Content Include="pics\speedy.jpg" />
     <Content Include="pics\spinGH.png" />
     <Content Include="pics\spinHP.png" />
     <Content Include="pics\spinNG.png" />
     <Content Include="pics\spinPN.png" />
     <Content Include="pics\sunset.jpg" />
     <Content Include="pics\tiger.jpg" />
+    <Content Include="pics\toyota_logo.png" />
     <Content Include="pics\VendingMachine.png" />
+    <Content Include="pics\X.jpg" />
     <Content Include="Register.aspx" />
     <Content Include="Sevivon.aspx" />
     <Content Include="special.jpg" />
+    <Content Include="SpecialCars.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="TicTacToe.aspx" />
+    <Content Include="Toyota.aspx" />
+    <Content Include="Update.aspx" />
     <Content Include="VendingMachine.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -153,6 +171,13 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cars.aspx.cs">
+      <DependentUpon>Cars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cars.aspx.designer.cs">
+      <DependentUpon>Cars.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Gallery.aspx.cs">
       <DependentUpon>Gallery.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -190,6 +215,13 @@
     </Compile>
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Honda.aspx.cs">
+      <DependentUpon>Honda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Honda.aspx.designer.cs">
+      <DependentUpon>Honda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -234,6 +266,34 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="SpecialCars.aspx.cs">
+      <DependentUpon>SpecialCars.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SpecialCars.aspx.designer.cs">
+      <DependentUpon>SpecialCars.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TicTacToe.aspx.cs">
+      <DependentUpon>TicTacToe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicTacToe.aspx.designer.cs">
+      <DependentUpon>TicTacToe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Toyota.aspx.cs">
+      <DependentUpon>Toyota.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Toyota.aspx.designer.cs">
+      <DependentUpon>Toyota.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Update.aspx.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Update.aspx.designer.cs">
+      <DependentUpon>Update.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VendingMachine.aspx.cs">
       <DependentUpon>VendingMachine.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -250,13 +310,8 @@
   <ItemGroup>
     <Content Include="Home.Master" />
   </ItemGroup>
-  <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-  </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">

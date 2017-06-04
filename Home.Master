@@ -40,6 +40,7 @@
                     <br />
                     <a href="Login.aspx" style="color : Yellow;">Login</a><br />
                     <a href ="Register.aspx" style="color : Yellow;">Register</a><br />
+                    <% = updateDetails %>
                     <a href="Logout.aspx" style="color :Yellow">Logout</a>
                     <br />
                     <div id="clock"></div>
@@ -52,14 +53,15 @@
                     <a href ="Gallery.aspx">Gallery</a><br />
                     <a href="Hanukiyah.aspx">Hanukiyah</a><br />
                     <a href="Sevivon.aspx">Sevivon</a><br />
-                    <span style="color : Red;"><b>New! - </b></span> Tic Tac Toe
+                    <a href="Cars.aspx">Cars</a><br />
+                    <span style="color : Red;"><b>New! - </b></span> <a href = "TicTacToe.aspx">Tic Tac Toe</a>
 
                 </td>
             </tr>
 
             <tr>
                 <td colspan = "3">
-                    <a href="Admin.aspx">Management Page - Admins Only!</a>
+                    <% = adminLink %>
                 </td>
             
             </tr>

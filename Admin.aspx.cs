@@ -48,7 +48,7 @@ namespace End
             result = "<h1 style='color : Red; font-size : 200%'>Insert database question:</h1><br />";
             result += "<form runat='server' method='post' onsubmit='return testForm()'>";
 
-            result += "<select name='category1' id='category1'>";
+            result += "<select name='category1' id='category1' onchange='changeInputMethod(this.id)'>";
             result += "<option>Category</option>";
             result += "<option value='Username'>Username</option>";
             result += "<option value='Password'>Password</option>";
@@ -58,7 +58,7 @@ namespace End
             result += "<option value='Prefix'>Prefix</option>";
             result += "<option value='Phone'>Phone</option>";
             result += "<option value='Day'>Day</option>";
-            result += "<option value='Month>Month</option>";
+            result += "<option value='Month'>Month</option>";
             result += "<option value='Year'>Year</option>";
             result += "<option value='Gender'>Gender</option>";
             result += "<option value='Basketball'>Basketball</option>";
@@ -73,7 +73,7 @@ namespace End
             result += "And<input type='radio' value = 'And' name = 'condition'/>";
             result += "<br />";
 
-            result += "<select name='category2' id='category2'>";
+            result += "<select name='category2' id='category2' onchange='changeInputMethod(this.id)'>";
             result += "<option>Category</option>";
             result += "<option value='Username'>Username</option>";
             result += "<option value='Password'>Password</option>";
@@ -83,7 +83,7 @@ namespace End
             result += "<option value='Prefix'>Prefix</option>";
             result += "<option value='Phone'>Phone</option>";
             result += "<option value='Day'>Day</option>";
-            result += "<option value='Month>Month</option>";
+            result += "<option value='Month'>Month</option>";
             result += "<option value='Year'>Year</option>";
             result += "<option value='Gender'>Gender</option>";
             result += "<option value='Basketball'>Basketball</option>";
