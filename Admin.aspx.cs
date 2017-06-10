@@ -35,9 +35,9 @@ namespace End
             {
                 notAdmin();
             }
-
+            
         }
-
+        
         protected void notAdmin()
         {
             result = "<h1 style='color : Red; font-size : 300%;'>You are not allowed to see this page</h1>";
@@ -47,7 +47,7 @@ namespace End
         {
             result = "<h1 style='color : Red; font-size : 200%'>Insert database question:</h1><br />";
             result += "<form runat='server' method='post' onsubmit='return testForm()'>";
-
+            
             result += "<select name='category1' id='category1' onchange='changeInputMethod(this.id)'>";
             result += "<option>Category</option>";
             result += "<option value='Username'>Username</option>";
@@ -95,13 +95,35 @@ namespace End
             result += "<input type='text' id='secondCategoryValue' name='secondCategoryValue'/>";
             result += "<br />";
 
-            result += "<br /><input type='submit' name='submit'/>";
-
+            result += "<br /><input type='submit' name='submit' onclick='which = 0' value='Do Question'/>";
+            result += "<input type='submit' name='showAll' id='showAll' onclick='which = 1' value='Show All'/><br / >";
             doQuestion();
         }
         protected void doQuestion()
         {
-            if (Request.Form["submit"] != null)
+
+
+            if (Request.Form["showAll"] != null)
+            {
+                // showing the entire table
+                DataTable dt = Helper.ExecuteDataTable("db.mdf", (question = "SELECT * FROM Users"));
+                str = "<table style = 'border : 1px solid black;'>";
+                for (int i = 0; i < dt.Columns.Count; i++)
+                {
+                    str += "<th style = 'color : Yellow; background-color : Green;'><b>" + dt.Columns[i] + "</b></th>";
+                }
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    str += "<tr>";
+                    for (int j = 0; j < dt.Columns.Count; j++)
+                    {
+                        str += "<td style='border : 1px double Red;'>" + dt.Rows[i][dt.Columns[j]] + "</td>";
+                    }
+                    str += "</tr>";
+                }
+                str += "</table>";
+            }
+            else if (Request.Form["submit"] != null)
             {
                 // The admin asked a valid question
                 // If the question involves a number - day, month, year, prefix or phone.
@@ -111,7 +133,7 @@ namespace End
                 
                 string firstValue = Request.Form["firstCategoryValue"];
                 string secondValue = Request.Form["secondCategoryValue"];
-                
+
                 bool changeFirst = true;
                 bool changeSecond = true;
 
@@ -136,26 +158,32 @@ namespace End
                     }
                 }
                 
-                // Putting quatations if needed
-                if (changeFirst)
-                    firstValue = "'" + firstValue + "'";
-                if (changeSecond)
-                    secondValue = "'" + secondValue + "'";
+                // No quatations necessary
 
-                question = "SELECT * FROM Users WHERE " + firstCategory + "=" + firstValue;
-                question += " " + Request.Form["condition"] + " " + secondCategory + "=" + secondValue;
+                question = "SELECT * FROM Users WHERE " + firstCategory + " LIKE " + "'%" + firstValue + "%'";
+                question += " " + Request.Form["condition"] + " " + secondCategory + " LIKE '%" + secondValue + "%'";
                 DataTable dt = Helper.ExecuteDataTable("db.mdf", question);
                 str = "<table style = 'border : 1px solid black;'>";
                 for (int i = 0; i < dt.Columns.Count; i++)
                 {
                     str += "<th style = 'color : Yellow; background-color : Green;'><b>" + dt.Columns[i] + "</b></th>";
                 }
+                string col = "", value = "";
                 for (int i = 0; i < dt.Rows.Count; i++)
                 {
                     str += "<tr>";
                     for (int j = 0; j < dt.Columns.Count; j++)
                     {
-                        str += "<td style='border : 1px double Red;'>" + dt.Rows[i][dt.Columns[j]] + "</td>";
+                        str += "<td style='border : 1px double Red;'>";
+                        col = dt.Columns[j].ToString();
+                        value = dt.Rows[i][dt.Columns[j]].ToString();
+
+                        if(col.Equals("Gender"))
+                        {
+                            value = value.Equals("True") ? "Male": "Female" ;
+                        }
+                        str += value;
+                        str += "</td>";
                     }
                     str += "</tr>";
                 }

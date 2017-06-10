@@ -13,7 +13,7 @@
                 var prefixOptions = ["050", "052", "053", "054", "055", "058"];
                 var monthOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
                 var dayOptions = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"];
-                
+
                 var options = category.options[category.selectedIndex].value == "Month" ? monthOptions : prefixOptions;
                 if (category.options[category.selectedIndex].value == "Day")
                     options = dayOptions;
@@ -33,14 +33,14 @@
 
             else if (category.options[category.selectedIndex].value == 'Gender') {
                 var option1 = document.createElement("option");
-                option1.value = "True";
+                option1.value = "1";
                 option1.text = "Male";
 
                 var option2 = document.createElement("option");
-                option2.value = "False";
+                option2.value = "0";
                 option2.text = "Female";
-                
-                
+
+
                 newList.appendChild(option1);
                 newList.appendChild(option2);
 
@@ -48,6 +48,24 @@
                 newList.setAttribute("name", id == "category1" ? "firstCategoryValue" : "secondCategoryValue");
                 temp.parentNode.replaceChild(newList, temp);
             }
+
+            else if (category.options[category.selectedIndex].value == "Basketball" || category.options[category.selectedIndex].value == "Computers" || category.options[category.selectedIndex].value == "Dancing" || category.options[category.selectedIndex].value == "Football") {
+                var option1 = document.createElement("option");
+                option1.value = "1";
+                option1.text = "Yes";
+
+                var option2 = document.createElement("option");
+                option2.value = "0";
+                option2.text = "No";
+
+                newList.appendChild(option1);
+                newList.appendChild(option2);
+
+                newList.id = id == "category1" ? "firstCategoryValue" : "secondCategoryValue";
+                newList.setAttribute("name", id == "category1" ? "firstCategoryValue" : "secondCategoryValue");
+                temp.parentNode.replaceChild(newList, temp);
+            }
+
             else {
                 temp = document.getElementById(id == "category1" ? "firstCategoryValue" : "secondCategoryValue");
                 var newTemp = document.createElement("input");
@@ -56,10 +74,13 @@
                 newTemp.setAttribute("id", id == "category1" ? "firstCategoryValue" : "secondCategoryValue");
                 temp.parentNode.replaceChild(newTemp, temp);
             }
-            
+
         }
-        function testForm() 
-        {
+        var which = 0;
+        function testForm() {
+            if (which == 1)
+                return true;
+
             var category1 = document.getElementById("category1");
             var category2 = document.getElementById("category2");
 

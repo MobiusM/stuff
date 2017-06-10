@@ -124,9 +124,14 @@
         }
     
     </script>
+    <script runat="server">
+        
+    
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
+    <% =showDetails %>
     <% = showForm %>
     <% = result %>
 </asp:Content>

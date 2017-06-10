@@ -35,7 +35,10 @@ namespace End
                     // User is not an admin, do nothing
                     adminLink = "";
                 }
-                updateDetails = "<a style='color : yellow;' href='Update.aspx'>Update details</a><br />";
+                if (dt.Rows.Count == 0)
+                    updateDetails = "<a style='color : yellow;' href='Update.aspx'>Update details</a><br />";
+                else
+                    updateDetails = ""; // Admin doesn't have update details page
             }
             else
             {

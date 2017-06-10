@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="TicTacToe.aspx.cs" Inherits="End.TicTacToe" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-		<script>
+		<script type="text/javascript">
 		    var count = 0; // Counter
 		    var board = [
 				[' ', ' ', ' '],
